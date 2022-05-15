@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { UPSERT } = require('sequelize/types/query-types');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -13,7 +12,6 @@ router.get('/', (req, res) => {
   })
   .then(dbProductData => res.json(dbProductData))
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
@@ -36,7 +34,6 @@ router.get('/:id', (req, res) => {
     res.json(dbProductData);
   })
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
@@ -68,7 +65,6 @@ router.post('/', (req, res) => {
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -110,7 +106,6 @@ router.put('/:id', (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
@@ -130,7 +125,6 @@ router.delete('/:id', (req, res) => {
     res.json(dbProductData);
   })
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });

@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
   })
   .then(dbTagData => res.json(dbTagData))
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
@@ -30,10 +29,9 @@ router.get('/:id', (req, res) => {
       res.status(404).json({message: 'Tag not found for this id'})
       return;
     }
-    res.json(dbProductData);
+    res.json(dbTagData);
   })
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
@@ -45,7 +43,6 @@ router.post('/', (req, res) => {
   })
   .then(dbTagData => res.json(dbTagData))
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
@@ -65,7 +62,6 @@ router.put('/:id', (req, res) => {
     res.json(dbTagData);
   })
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
@@ -85,7 +81,6 @@ router.delete('/:id', (req, res) => {
     res.json(dbTagData);
   })
   .catch(err => {
-    console.log(err);
     res.status(500).json(err);
   })
 });
