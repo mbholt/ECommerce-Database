@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {Product}
+    include: [Product]
   })
   .then(dbCategoryData => {
     if (!dbCategoryData) {
